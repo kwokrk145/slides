@@ -12,7 +12,7 @@ const PORT = process.env.PORT || 3000;
 app.use(express.json());
 
 // CORS configuration
-const allowedOrigins = process.env.CORS_ORIGINS?.split(",") || [
+const allowedOrigins = process.env.CORS_ORIGINS?.split(",").map(origin => origin.trim()) || [
   "http://localhost:5173", // Vite default
   "http://localhost:3000",
 ];

@@ -1,4 +1,4 @@
-const API_BASE_URL = import.meta.env.VITE_API_URL || "https://slides-vdwo.onrender.com/";
+const API_BASE_URL = import.meta.env.VITE_API_URL || "https://slides-vdwo.onrender.com/api";
 
 interface ApiError {
   error: string;

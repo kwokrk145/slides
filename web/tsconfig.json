@@ -1,0 +1,19 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "./tsconfig.app.json"
+    },
+    {
+      "path": "./tsconfig.node.json"
+    }
+  ],
+  // ADD EVERYTHING BELOW THIS LINE
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+  // ADD EVERYTHING ABOVE THIS LINE 
+}

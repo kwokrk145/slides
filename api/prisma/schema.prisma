@@ -1,0 +1,40 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Person {
+  id       Int       @id @default(autoincrement())
+  name     String
+  year     Int
+  imageUrl String
+  major    String?
+  comments Comment[]
+
+  @@map("persons")
+}
+
+model Comment {
+  id        Int      @id @default(autoincrement())
+  personId  Int
+  text      String
+  editToken String   @unique
+  isDeleted Boolean  @default(false)
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  person    Person   @relation(fields: [personId], references: [id], onDelete: Cascade)
+
+  @@index([personId])
+  @@map("comments")
+}
+
+model GalleryState {
+  id         Int     @id @default(1)
+  isReleased Boolean @default(false)
+
+  @@map("gallery_states")
+}
